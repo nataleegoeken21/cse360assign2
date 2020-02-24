@@ -154,4 +154,10 @@ public class SimpleList
 		}
 		return index - 1; //parameter is not in the list 
 	}
+	
+	public int size()
+	{
+		return count;
+	}
+	
 }
