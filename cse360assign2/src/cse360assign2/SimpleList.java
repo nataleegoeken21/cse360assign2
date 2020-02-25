@@ -2,9 +2,15 @@ package cse360assign2;
 
 /* Natalee Goeken
  * Class ID: 397
- * Assignment 1
- * This assignment is creating an array which it will be created so elements
- * can be added, searched, removed, counted, and stringed in the list. 
+ * Assignment 2
+ * This assignment is to learn how to use github in connection with a java 
+ * program that includes the git tool. 
+ * 
+ * 
+ * My github should be public, but if any issues, the user/password to github:
+ * username: nataleegoeken21
+ * password: SparklesBelle21!
+ * repository URL: https://github.com/nataleegoeken21/cse360assign2
  */
 
 
@@ -67,6 +73,33 @@ public class SimpleList
 		{
 			count++;
 		}
+		
+		//making 
+		if (count == list.length)
+		{
+			//increasing the list by 50% to ensure there will be room
+			int newSizeList = (int) (0.5 * list.length);
+			int[] newRoomList = new int[newSizeList];
+			
+			//put elements in new array
+			for(int i = 0; i < list.length; i++)
+			{
+				newRoomList[i] = list[i];
+			}
+			list = newRoomList;
+		}
+
+		//if there is not room in the list
+		else
+		{
+			for(int i = count-1; i >= 0; i--)
+			{
+				list[i+1] = list[i];
+			}
+			list[0] = numberAdded;
+		}
+		//increasing the count
+		count++;
 	}
 	
 	/**
@@ -155,6 +188,11 @@ public class SimpleList
 		return index - 1; //parameter is not in the list 
 	}
 	
+	/**
+	 * Return the possible number of locations that are in the list
+	 * 
+	 * @return
+	 */
 	public int size()
 	{
 		return count;
