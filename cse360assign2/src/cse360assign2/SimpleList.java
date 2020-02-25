@@ -13,8 +13,6 @@ package cse360assign2;
  * repository URL: https://github.com/nataleegoeken21/cse360assign2
  */
 
-
-
 /**
  *  This class contains several different methods which will be used to modify
  *  a list. first method is the SimpleList which will create our list and allow
@@ -74,11 +72,11 @@ public class SimpleList
 			count++;
 		}
 		
-		//making 
+		//making room in list by 50%
 		if (count == list.length)
 		{
 			//increasing the list by 50% to ensure there will be room
-			int newSizeList = (int) (0.5 * list.length);
+			int newSizeList = (int) (1.5 * list.length);
 			int[] newRoomList = new int[newSizeList];
 			
 			//put elements in new array
@@ -127,6 +125,7 @@ public class SimpleList
 			}
 			count--;
 		}
+		
 	}
 	
 	/**
@@ -187,6 +186,39 @@ public class SimpleList
 		}
 		return index - 1; //parameter is not in the list 
 	}
+	
+	/**
+	 * This will append the parameter to the end of the list and increase the 
+	 * size by 50%
+	 * 
+	 * @param element
+	 */
+	
+	public void append(int element)
+	{
+		if(count == list.length)
+		{
+			int newSizeList = (int) (1.5 * list.length);
+			int[] newRoomList = new int[newSizeList];
+			
+			for(int i = 0; i < list.length; i++)
+			{
+				newRoomList[i] = list[i];
+			}
+			
+			newRoomList[list.length] = element;
+			list = newRoomList;
+		}
+		else
+		{
+			list[0] = element;
+		}
+		
+		//adding to the end of the list
+		list[count] = element;
+		count++;
+	}
+	
 	
 	/**
 	 * Return the possible number of locations that are in the list
