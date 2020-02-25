@@ -90,9 +90,10 @@ public class SimpleList
 		//if there is not room in the list
 		else
 		{
-			for(int i = count-1; i >= 0; i--)
+			//checking if there is not room in the list 
+			for(int i = list.length-1; i >= 0; i--)
 			{
-				list[i+1] = list[i];
+				list[i] = list[i-1];
 			}
 			list[0] = numberAdded;
 		}
@@ -124,8 +125,43 @@ public class SimpleList
 				}
 			}
 			count--;
+
 		}
 		
+		//count makes sure that there is room in list by dividing it by the
+		//length
+		int size = 1 * count / list.length;
+		//if there is less than 25% of room in the list 
+		if (size < 0.75)
+		{
+			//increasing the list by 50% to ensure there will be room. create 
+			//new list
+			int newSizeList = (int) (0.75 * list.length);
+			int[] newRoomList = new int[newSizeList];
+			
+			//put elements in new list
+			for(int i = 0; i < newRoomList.length; i++)
+			{	
+				newRoomList[i] = list[i];
+			}
+			list = newRoomList;
+		}
+		//decreasing the count if there is not enough room in the list 
+		index--;
+	}
+	
+	/**
+	 * This will return the first element in the list 
+	 * 
+	 * @return
+	 */
+	
+	//finding the first element in the list
+	public int first()
+	{
+		if (count == 0)
+			return -1;
+		return list[count-1];
 	}
 	
 	/**
@@ -194,24 +230,24 @@ public class SimpleList
 	 * @param element
 	 */
 	
+	//append the parameter to the end of the list 
 	public void append(int element)
 	{
+		//making room in list by 50%
 		if(count == list.length)
 		{
+			//have to do 1.5 so you take into consideration the list plus 50%
+			//more room in the list 
 			int newSizeList = (int) (1.5 * list.length);
 			int[] newRoomList = new int[newSizeList];
 			
+			//put the elements in the list 
 			for(int i = 0; i < list.length; i++)
 			{
 				newRoomList[i] = list[i];
 			}
-			
-			newRoomList[list.length] = element;
+
 			list = newRoomList;
-		}
-		else
-		{
-			list[0] = element;
 		}
 		
 		//adding to the end of the list
