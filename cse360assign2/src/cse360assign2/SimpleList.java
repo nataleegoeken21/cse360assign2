@@ -12,6 +12,7 @@ package cse360assign2;
  * password: SparklesBelle21!
  * repository URL: https://github.com/nataleegoeken21/cse360assign2
  */
+//comment
 
 /**
  *  This class contains several different methods which will be used to modify
