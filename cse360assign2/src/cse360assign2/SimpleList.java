@@ -168,7 +168,7 @@ public class SimpleList
 		//if the list is empty then return -1 
 		if (count == 0)
 			return -1;
-		//otherwise return count -1 
+		//otherwise return list
 		return list[0];
 	}
 	
@@ -182,6 +182,7 @@ public class SimpleList
 	{
 		if (count == 0)
 			return -1;
+		//other return count-1
 		return list[count-1];
 	}
 	
