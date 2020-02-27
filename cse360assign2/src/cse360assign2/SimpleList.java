@@ -12,7 +12,7 @@ package cse360assign2;
  * password: SparklesBelle21!
  * repository URL: https://github.com/nataleegoeken21/cse360assign2
  */
-//comment
+
 
 /**
  *  This class contains several different methods which will be used to modify
@@ -20,12 +20,17 @@ package cse360assign2;
  *  for there to be 10 elements in the list. We will also start off with having
  *  the count initially as 0. The next method is the add function which will
  *  add a parameter to the list and move the rest of the contents of the 
- *  list over. Remove is the next method and it finds a parameter in the list
- *  and can remove it. Next, the toString method which will return the list
- *  as a String. Finally, the last method is a search which will find the 
- *  location of the parameter in the list. All of these methods will be used
- *  in order to manipulate the list to do the different method descriptions
- *  listed above. 
+ *  list over. It will also take into consideration if the list is full, then 
+ *  make more room by 50%. Remove is the next method and it finds a parameter 
+ *  in the list and can remove it. It also takes into consideration if there 
+ *  is 25% room in the list, to make it smaller. Next, the toString method 
+ *  which will return the list as a String. There is also a first and last 
+ *  method which will return the first and last element in the list respectively.
+ *  There is also an append which will append the parameter to the end of the
+ *  list and can make it bigger by 50% if needed. Finally, the last method is a
+ * 	search which will find the location of the parameter in the list. All of 
+ * 	these methods will be used in order to manipulate the list to do the 
+ * 	different method descriptions listed above. 
  * 
  * @author nataleegoeken
  */
@@ -159,6 +164,21 @@ public class SimpleList
 	
 	//finding the first element in the list
 	public int first()
+	{
+		//if the list is empty then return -1 
+		if (count == 0)
+			return -1;
+		//otherwise return count -1 
+		return list[0];
+	}
+	
+	/**
+	 * This will return the last element in the list 
+	 * 
+	 * @return
+	 */
+	
+	public int last()
 	{
 		if (count == 0)
 			return -1;
